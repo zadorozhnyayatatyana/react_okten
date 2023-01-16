@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.App-bloks {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

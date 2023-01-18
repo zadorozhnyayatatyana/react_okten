@@ -17,18 +17,17 @@ div {
 }
 
 .RickAndMorty-img {
-    flex: 2 1 0%;
+    flex: 2 1;
     width: 100%;
 }
 
 .RickAndMorty-img img {
     width: 100%;
     height: 100%;
-    margin: 0px;
 }
 
 .RickAndMorty-description {
-    flex: 3 1 0%;
+    flex: 3 1 ;
     position: relative;
     padding:10px;
     color: rgb(255, 255, 255);
@@ -37,7 +36,7 @@ div {
 }
 
 .RickAndMorty-description .section {
-    flex: 1 1 0%;
+    flex: 1 1 ;
     display: flex;
     flex-direction: column;
     -webkit-box-pack: center;

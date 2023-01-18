@@ -1,5 +1,5 @@
 import './App.css';
-import {RickAndMortyComponent} from "./components/RickAndMortyComponent";
+import {RickAndMortyComponent} from "./components/RickAndMorty/RickAndMortyComponent";
 
 function App() {
   return (

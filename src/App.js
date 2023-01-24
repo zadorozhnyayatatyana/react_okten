@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {Cars} from "./components/Cars/Cars";
+import {CarForm} from "./components/CarForm/CarForm";
+import {useEffect, useState} from "react";
+import {carService} from "./services/carService";
+import {UserForm, Users} from "./components";
+import {userService} from "./services";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        userService.getAll().then(({data})=>setUsers([...data]))
+    }, []);
+
+    const [cars, setCars] = useState([]);
+    const [updateCar, setUpdateCar] = useState(null);
+
+    useEffect(() => {
+        carService.getAll().then(({data}) => setCars([...data]))
+    }, []);
+
+
+    return (
+        <div>
+            <UserForm setUsers={setUsers}/>
+            <hr/>
+            <Users users={users}/>
+
+            <CarForm setCars={setCars}
+                     updateCar={updateCar}/>
+            <hr/>
+            <Cars cars={cars}
+                  setUpdateCar={setUpdateCar}
+                  setCars={setCars}/>
+        </div>
+    );
 }
 
-export default App;
+export {App}

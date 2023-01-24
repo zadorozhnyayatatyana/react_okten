@@ -11,7 +11,6 @@ const Users = () => {
        userService.getAll().then(value => value.data).then(value => setUsers([...value]))
    },[]);
 
-
     return (
         <div>
             <h1>Users</h1>

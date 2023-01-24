@@ -1,4 +1,5 @@
 const User = ({user, setUserPosts}) => {
+    console.log(user)
     const {id, name} = user
     return (
         <div>

@@ -1,18 +1,24 @@
-import {Cars, Form} from "./components";
-import {useSelector} from "react-redux";
+import {Navigate, Route, Routes} from "react-router-dom";
 
+import {AuthRequireLayout, MainLayout} from "./layouts";
+import {CarsPage, LoginPage, RegisterPage} from "./pages";
 
 const App = () => {
-   const {loading} = useSelector(state => state.cars);
+return(
+    <Routes>
+        <Route path={'/'} element={<MainLayout/>}>
+        <Route index element={<Navigate to={'cars'}/>}/>
 
-  return (
-    <div>
-      <Form/>
-      <hr/>
-        {loading&&<h1>loading...................</h1>}
-      <Cars/>
-    </div>
-  );
+        <Route element={<AuthRequireLayout/>}>
+            <Route path={'cars'} element={<CarsPage/>}/>
+        </Route>
+
+        <Route path={'login'} element={<LoginPage/>}/>
+        <Route path={'register'} element={<RegisterPage/>}/>
+        </Route>
+    </Routes>
+)
+
 }
 
 export {
